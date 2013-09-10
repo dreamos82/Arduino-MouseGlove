@@ -18,8 +18,8 @@ float scale = 102.3;
 
 const int analogInPin1 = I0;  // Analog input pin that the Accelerometer's first pin is attached to
 const int analogInPin2 = I1;  // Analog input pin that the Accelerometer's second pin is attached to
-//int activation_button = 7;
-int motorPort = 9;
+const int activation_button = 7;
+const int motorPort = 9;
 int xRest = 0;
 int yRest = 0;
 int val = 0;
@@ -27,7 +27,7 @@ int val = 0;
 void setup()
 {
   // start serial port at 9600 bps:
-//  pinMode(activation_button, INPUT);    
+  pinMode(activation_button, INPUT);    
   Serial.begin(57600);
 //  Mouse.begin();
   Serial.println("Startingup..."); 
@@ -45,8 +45,8 @@ void loop()
   //delay(500);  
 //  xAxisValue = accelerometer.getXAxis();  
 //  yAxisValue = accelerometer.getYAxis(); 
-//int val = digitalRead(activation_button);
-//if(val==HIGH) {
+int val = digitalRead(activation_button);
+if(val==HIGH) {
     xAxisValue = avgValueX() - xRest;
     yAxisValue = avgValueY() - yRest;
   //  xAxisValue = analogRead(analogInPin1);  
@@ -68,10 +68,10 @@ void loop()
       delay(20);
     }
     digitalWrite(motorPort, LOW);
-//} else {
-//  delay(20);
-//  digitalWrite(motorPort, LOW);
-//}
+} else {
+  delay(20);
+  digitalWrite(motorPort, LOW);
+}
 /*  
   
   // set the leds brightnes
