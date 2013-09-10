@@ -1,7 +1,7 @@
 Arduino-MouseGlove
 ==================
 
-This is Simply project for a MouseGlove based on arduino.
+This is a simply project for a MouseGlove based on arduino.
 
 It is composed by two parts:
 
@@ -11,6 +11,17 @@ It is composed by two parts:
 To compile linux client you need to typethe following command:
 
    # gcc -lX11 pointermouse.c -o pointermouse
+
+
+Actually it can only move the mouse pointer. 
+The device prot is defined in pointermouse.h (in the future maybe it will be a command line parameter), but for now you have to
+update the line:
+
+ ```C
+#define COM_PORT "/dev/ttyACM1"
+ ```
+
+with your arduino port.
 
 WARNING: This project is intended as an experiment with arduino accelerometer, then it is not intended to work perfectly, 
 or to be finished.
