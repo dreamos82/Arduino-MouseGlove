@@ -14,14 +14,18 @@ To compile linux client you need to typethe following command:
 
 
 Actually it can only move the mouse pointer. 
-The device prot is defined in pointermouse.h (in the future maybe it will be a command line parameter), but for now you have to
+The device port is defined in client/pointermouse.h (in the future maybe it will be a command line parameter), but for now you have to
 update the line:
 
  ```C
 #define COM_PORT "/dev/ttyACM1"
  ```
 
-with your arduino port.
+with your arduino port before compiling.
+
+You must launch the client 5 or 10 second after you plugged in your arduino. You just need to type:
+
+# ./pointermouse
 
 WARNING: This project is intended as an experiment with arduino accelerometer, then it is not intended to work perfectly, 
 or to be finished.
