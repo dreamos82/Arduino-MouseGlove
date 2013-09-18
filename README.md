@@ -10,7 +10,7 @@ It is composed by two parts:
 
 To compile linux client you need to type the following command:
 
-   # gcc -lX11 pointermouse.c -o pointermouse
+    # gcc -lX11 pointermouse.c -o pointermouse
 
 
 Actually it can only move the mouse pointer. 
@@ -30,7 +30,10 @@ with your arduino port before compiling.
 
 You must launch the client 5 or 10 second after you plugged in your arduino. You just need to type:
 
-# ./pointermouse
+    # ./pointermouse
 
 WARNING: This project is intended as an experiment with arduino accelerometer, then it is not intended to work perfectly, 
 or to be finished.
+
+
+P.S. As soon as possible i will also publish the hardware scheme.
