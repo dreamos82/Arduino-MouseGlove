@@ -154,7 +154,8 @@ int readSerial(int fd, int* x, int* y){
  * Function that move mouse given accellerometer reads.
  * @param x current x read
  * @param y current y read
- * @param display current display handler 
+ * @param display current display handler
+ * @param root_window The root window 
  * @param posx current x pointer position  
  * @param posy current y pointer position  
  */
@@ -162,11 +163,11 @@ void moveMouse(int x, int y, Display *display, Window root_window, int posx, int
   int movementx = x - startx;
   int movementy = y - starty;  
   if(abs(movementx)>delta){
-    XWarpPointer(display, None, root_window, 0, 0, 0, 0, posx+(movementx/10), posy);
+    XWarpPointer(display, None, root_window, 0, 0, 0, 0, posx+(movementx/SPEED_FACTOR), posy);
     curposx = x;
   }
   if(abs(movementy)>delta){    
-    XWarpPointer(display, None, root_window, 0, 0, 0, 0, posx, (posy+movementy/10));
+    XWarpPointer(display, None, root_window, 0, 0, 0, 0, posx, (posy+movementy/SPEED_FACTOR));
     curposy=y;
   }
   printf("mx: %d, my: %d | sx: %d, sy: %d | cx: %d, cy: %d\n", movementx,movementy,startx, starty, curposx, curposy);

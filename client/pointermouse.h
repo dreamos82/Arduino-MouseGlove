@@ -6,6 +6,8 @@
 
 #define COM_PORT "/dev/ttyACM0"
 
+#define SPEED_FACTOR 10
+
 int readSerial(int, int*, int*);
 void moveMouse(int, int, Display *, Window, int, int);
 #endif
