@@ -17,9 +17,11 @@ Actually it can only move the mouse pointer.
 The device port is defined in client/pointermouse.h (in the future maybe it will be a command line parameter), but for now you have to
 update the line:
 
- ```C
+```C
 #define COM_PORT "/dev/ttyACM1"
- ```
+```
+
+with your arduino port before compiling.
 
 Here you can also define some parameters such as:
 * The speed factor used to set the cursor speed: 
@@ -38,8 +40,6 @@ Here you can also define some parameters such as:
 ```C
 #define DELTA_VALUE 5
 ```
-
-with your arduino port before compiling.
 
 You must launch the client 5 or 10 second after you plugged in your arduino. You just need to type:
 
