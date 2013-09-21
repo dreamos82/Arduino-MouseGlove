@@ -34,6 +34,7 @@ Here you can also define some parameters such as:
 ```
 
 * The treshold value, if the readings are below that value no movement will be performed:
+
 ```C
 #define DELTA_VALUE 5
 ```
