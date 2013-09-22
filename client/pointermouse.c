@@ -99,6 +99,11 @@ int main(void) {
     //Loop di controllo
     printf("Starting from: x=%d y=%d\n", x,y);
     while(1){
+      int res = readSerial(fd, &x, &y);
+      if(res==-1) {
+	  printf("No data...\n");
+	  continue;
+      }
       for (i = 0; i < number_of_screens; i++) {      
 	 result = XQueryPointer(display, root_windows[i], &window_returned,
 		&window_returned, &root_x, &root_y, &win_x, &win_y,
@@ -112,11 +117,6 @@ int main(void) {
 	return -1;
       }
     //printf("Mouse is at (%d,%d) Screen size: %dx%d\n", root_x, root_y,width,height);
-    int res = readSerial(fd, &x, &y);
-    if(res==-1) {
-      printf("No data...\n");
-      continue;
-    }
     printf("x: %d, y: %d\n", x,y);
     moveMouse(x,y, display,root_windows[0], root_x, root_y);
       if(root_x == width-1 || root_y == height-1 || root_x == 0 || root_y == 0){
