@@ -21,9 +21,21 @@ update the line:
 #define COM_PORT "/dev/ttyACM1"
  ```
 
-Here you can also define the speed factor used to set the cursor speed: 
+Here you can also define some parameters such as:
+* The speed factor used to set the cursor speed: 
+
 ```C
 #define SPEED_FACTOR 10
+```
+* The number of iterations used for read input values during calibration. 
+
+```C
+#define NUM_READ 10
+```
+
+* The treshold value, if the readings are below that value no movement will be performed:
+```C
+#define DELTA_VALUE 5
 ```
 
 with your arduino port before compiling.
