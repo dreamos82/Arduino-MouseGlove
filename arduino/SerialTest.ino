@@ -1,6 +1,6 @@
 /*
- SerialTest Example
- 
+ MouseGlove - Device program
+ Author: Ivan Gualandri
  */
  
  #include <TinkerKit.h>
@@ -26,10 +26,9 @@ int val = 0;
 
 void setup()
 {
-  // start serial port at 9600 bps:
+  // start serial port at 57600 bps:
   pinMode(activation_button, INPUT);    
   Serial.begin(57600);
-//  Mouse.begin();
   Serial.println("Startingup..."); 
   Serial.println("Stay still for 2 seconds...");
   xRest = avgValueX();
@@ -40,9 +39,6 @@ void setup()
 
 void loop() 
 {
-  // if we get a valid byte, read analog ins:
-  //Serial.write("Hello world\n");
-  //delay(500);  
 //  xAxisValue = accelerometer.getXAxis();  
 //  yAxisValue = accelerometer.getYAxis(); 
 int val = digitalRead(activation_button);
@@ -52,7 +48,6 @@ if(val==HIGH) {
   //  xAxisValue = analogRead(analogInPin1);  
   //  yAxisValue = analogRead(analogInPin2);  
   //  xNor = ((float)xAxisValue - (float)zero_G)/scale;
-
   //  int outputValue1 = map(xAxisValue, 0, 1023, 0, 255);  
   //  int outputValue2 = map(xAxisValue, 0, 1023, 0, 255); 
     Serial.print("Y=" );                       
@@ -73,14 +68,12 @@ if(val==HIGH) {
   digitalWrite(motorPort, LOW);
 }
 /*  
-  
   // set the leds brightnes
   // print the results to the serial monitor:
   Serial.print("X=" );                       
   Serial.print(xNor);   
   Serial.print("Y=" );                       
   Serial.println(yNor);     
-  
 */
 }
 
