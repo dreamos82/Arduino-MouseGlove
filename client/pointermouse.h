@@ -4,7 +4,7 @@
 #define NUM_READ 10
 #define DELTA_VALUE 5
 
-#define COM_PORT "/dev/ttyACM0"
+#define COM_PORT "/dev/ttyACM1"
 
 #define SPEED_FACTOR 10
 

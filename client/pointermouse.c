@@ -49,7 +49,7 @@ void setupSerial(char *port){
  tcsetattr(fd, TCSANOW, &toptions);
 }
 
-int main(void) {
+int main(int argc, char *argv[]) {
     int number_of_screens;
     int i;
     Bool result;
@@ -60,7 +60,7 @@ int main(void) {
     unsigned int mask_return;
     int sumx;
     int sumy;    
-    Display *display = XOpenDisplay(NULL);
+    Display *display = XOpenDisplay(NULL);    
     
     sumx=0;
     sumy=0;
@@ -74,7 +74,12 @@ int main(void) {
     int height = XDisplayHeight(display,0);
     fprintf(stdout, "Size: %dx%d Number of screens: %d\n", width, height, number_of_screens);
     root_windows = malloc(sizeof(Window) * number_of_screens);
-    setupSerial(COM_PORT);
+    if(argc>1){
+      printf("Manual entere port: %s\n", argv[1]);
+      setupSerial(argv[1]);
+    } else {
+      setupSerial(COM_PORT);
+    }
     int x, y;
     for (i = 0; i < number_of_screens; i++) {
 	root_windows[i] = XRootWindow(display, i);
@@ -163,7 +168,7 @@ void moveMouse(int x, int y, Display *display, Window root_window, int posx, int
   int movementx = x - startx;
   int movementy = y - starty;  
   if(abs(movementx)>delta){
-    XWarpPointer(display, None, root_window, 0, 0, 0, 0, posx+(movementx/SPEED_FACTOR), posy);
+    XWarpPointer(display, None, root_window, 0, 0, 0, 0, posx-(movementx/SPEED_FACTOR), posy);
     curposx = x;
   }
   if(abs(movementy)>delta){    
