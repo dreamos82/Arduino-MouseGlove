@@ -45,6 +45,10 @@ You must launch the client 5 or 10 second after you plugged in your arduino. You
 
     # ./pointermouse
 
+you can also specify the device created for arduino, so in that case you must type (assuming that your arduino is plugged on ttyACM4):
+
+    # ./pointermouse /dev/ttyACM4
+
 WARNING: This project is intended as an experiment with arduino accelerometer, then it is not intended to work perfectly, 
 or to be finished.
 
