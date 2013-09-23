@@ -133,6 +133,12 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+/**
+ * Function that move mouse given accellerometer reads.
+ * @param fd file descriptor
+ * @param &x pointer to x container variable
+ * @param &y pointer to y container variable
+ */
 int readSerial(int fd, int* x, int* y){
   if(fd==-1) {
     //fprintf(stderr, "Device not opened");
