@@ -75,9 +75,15 @@ int main(int argc, char *argv[]) {
     fprintf(stdout, "Size: %dx%d Number of screens: %d\n", width, height, number_of_screens);
     root_windows = malloc(sizeof(Window) * number_of_screens);
     if(argc>1){
-      printf("Manual entere port: %s\n", argv[1]);
-      setupSerial(argv[1]);
+      if(!strcmp(argv[1], "--version")){
+	printf("%s - Version %s\n", argv[0], VERSION);
+	return 0;
+      } else {
+	printf("Manual entered port: %s\n", argv[1]);
+	setupSerial(argv[1]);
+      }
     } else {
+      printf("No ports given, using default port: %s\n", COM_PORT);
       setupSerial(COM_PORT);
     }
     int x, y;

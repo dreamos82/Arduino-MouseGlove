@@ -8,6 +8,8 @@
 
 #define SPEED_FACTOR 10
 
+#define VERSION "0.1"
+
 int readSerial(int, int*, int*);
 void moveMouse(int, int, Display *, Window, int, int);
 #endif
