@@ -14,16 +14,6 @@
 
 #include "pointermouse.h"
 
-static struct option long_options[] = {
-               {"help",     0,       0, 'h'},
-               {"version",  0,       0, 'v'},
-               {"device",  1, 0, 'd'},
-               {"threshold",  1, 0, 't'},
-               {"speed",    1, 0, 's'},
-               {0, 0, 0, 0}
-             };
-
-
 int fd; 
 
 int curposx;
