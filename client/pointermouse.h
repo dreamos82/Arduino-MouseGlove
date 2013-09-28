@@ -19,6 +19,7 @@ static struct option long_options[] = {
                {0, 0, 0, 0}
              };
 
+void setupSerial(char *);
 int readSerial(int, int*, int*);
 void moveMouse(int, int, Display *, Window, int, int);
 #endif

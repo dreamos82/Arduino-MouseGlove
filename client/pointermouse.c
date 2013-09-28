@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <getopt.h>
+#include <string.h>
 
 #include "pointermouse.h"
 
@@ -61,7 +62,7 @@ int main(int argc, char *argv[]) {
     int sumx;
     int sumy;    
     Display *display = XOpenDisplay(NULL);    
-    
+    char *com_port = COM_PORT;
     sumx=0;
     sumy=0;
     delta=DELTA_VALUE;
@@ -74,11 +75,13 @@ int main(int argc, char *argv[]) {
 	  return 0;
 	case 'd':
 	  printf("Val: %s\n", optarg);
-	  setupSerial(optarg);
+	  com_port = malloc(strlen(optarg));
+	  strcpy(com_port,optarg);
+	  printf("%s\n",com_port);	  
 	break;
-      }
-      printf("Valw: %s\n", optarg);
+      }      
     }
+    setupSerial(com_port);
     assert(display);
     XSetErrorHandler(_XlibErrorHandler);    
     number_of_screens = XScreenCount(display);
