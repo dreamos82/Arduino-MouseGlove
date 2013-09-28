@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
 	while(j<NUM_READ){	  
 	  int status = readSerial(fd, &x, &y);
 	  if(status ==-1) continue;
-	  printf("x: %d, y: %d\n", x,y);
+	  printf("Status: %d, x: %d, y: %d\n", status, x,y);
 	  sumx +=x;
 	  sumy +=y;
 	  XWarpPointer(display, None, root_windows[i], 0, 0, 0, 0, 100+(j*5), 100+(j*5));
@@ -156,9 +156,9 @@ int readSerial(int fd, int* x, int* y){
     return -1;
   }
     else {
-      char buffer[32];
+      char buffer[32] = "";
       int n = read(fd, buffer, sizeof(buffer));
-      if (n < 0){
+      if (n <= 0){
 	 fputs("read failed!\n", stderr);
 	 return -1;
       }

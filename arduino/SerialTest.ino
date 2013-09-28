@@ -60,7 +60,6 @@ if(val==HIGH) {
      while(Serial.available() > 0) {
       char incomingByte = Serial.read();
       
-      Serial.write(incomingByte);
       digitalWrite(motorPort, HIGH);
       delay(20);
     }
