@@ -97,7 +97,8 @@ int main(int argc, char *argv[]) {
 	int j=0;
 	
 	while(j<NUM_READ){	  
-	  readSerial(fd, &x, &y);
+	  int status = readSerial(fd, &x, &y);
+	  if(status ==-1) continue;
 	  printf("x: %d, y: %d\n", x,y);
 	  sumx +=x;
 	  sumy +=y;

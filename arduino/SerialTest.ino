@@ -13,13 +13,14 @@ TKLed xLed(O1), yLed(O0);     		// creating the objects 'xLed' & 'yLed' that bot
 int xAxisValue = 0;           // value read from the accelerometer's x-axis 
 int yAxisValue = 0;           // value read from the accelerometer's y-axis
 //char inData[20]; // Allocate some space for the string
-int zero_G = 512;
-float scale = 102.3; 
+//int zero_G = 512;
+//float scale = 102.3; 
 
 const int analogInPin1 = I0;  // Analog input pin that the Accelerometer's first pin is attached to
 const int analogInPin2 = I1;  // Analog input pin that the Accelerometer's second pin is attached to
 const int activation_button = 7;
 const int motorPort = 9;
+const int led_port=13;
 int xRest = 0;
 int yRest = 0;
 int val = 0;
@@ -29,12 +30,13 @@ void setup()
   // start serial port at 57600 bps:
   pinMode(activation_button, INPUT);    
   Serial.begin(57600);
-  Serial.println("Startingup..."); 
-  Serial.println("Stay still for 2 seconds...");
+//  Serial.println("Startingup..."); 
+//  Serial.println("Stay still for 2 seconds...");
   xRest = avgValueX();
   yRest = avgValueY();
-  delay(5000);
+  delay(2000);
   pinMode(motorPort, OUTPUT);
+  digitalWrite(led_port, HIGH);
 }
 
 void loop() 
