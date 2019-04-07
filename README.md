@@ -45,7 +45,7 @@ You must launch the client after the led L on arduino is turned on. You just nee
 
     # ./pointermouse
 
-if you want to use de default device, or you can specify the device name of your arduino, in that case you must type (assuming that your arduino is plugged on ttyACM4):
+if you want to use the default device, or you can specify the device name of your arduino, in that case you must type (assuming that your arduino is plugged on ttyACM4):
 
     # ./pointermouse --device /dev/ttyACM4
 
